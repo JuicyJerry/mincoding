@@ -1,26 +1,33 @@
 #include <iostream>
 using namespace std;
-
 int main() {
-	char vect[8];
-	for (int i = 0; i < 8; i++) cin >> vect[i];
-
-	char big[8];
+	char vect[9] = { 0 };
 	for (int i = 0; i < 8; i++) {
-		if (vect[i] >= 'A' && vect[i] <= 'Z') big[i] = vect[i];
+		cin >> vect[i];
+	}
+	char big[9] = { 0 };
+	char small[9] = { 0 };
+	int t = 0;
+	int j = 0;
+
+	for (int i = 0; i < 8; i++) {
+		if (vect[i] >= 'A' && vect[i] <= 'Z') {
+			big[t] = vect[i];
+			t++;
+		}
 	}
 
-	char small[8];
 	for (int i = 0; i < 8; i++) {
-		if (vect[i] >= 'a' && vect[i] <= 'z') small[i] = vect[i];
+		if (vect[i] >= 'a' && vect[i] <= 'z') {
+			small[j] = vect[i];
+			j++;
+		}
 	}
 
+	cout << "big=" << big << endl;
+	cout << "small=" << small;
 
-	cout << "big=";
-	cout << big << endl;
-
-	cout << "small=";
-	cout << small << endl;
 
 	return 0;
 }
+
