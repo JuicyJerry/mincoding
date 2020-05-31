@@ -1,31 +1,29 @@
 #include <iostream>
 using namespace std;
-int even(int value) {
 
-	return value * 2;
+
+int printData(int value) {
+	return value;
+}
+
+int even(int value) {
+	int ret = printData(value * 2);
+	return ret;
 }
 
 int odd(int value) {
-
-	return value - 10;
-}
-
-int printData(int value) {
-
-	return value;
+	int ret = printData(value - 10);
+	return ret;
 }
 
 int main() {
 	int a, b;
 	cin >> a >> b;
-	int evenNum = even(a / b);
-	int oddNum = odd(a / b);
+	if ((a / b) % 2 == 0) cout << printData(even(a / b)) << endl;
+	else cout << printData(odd(a / b)) << endl;
 
-	if (a % b == 0) cout << evenNum << endl;
-	else if (a % b == 1) cout << oddNum << endl;
-
-	int run2 = printData(a + b);
-	cout << run2;
+	int ret = printData(a + b);
+	cout << ret;
 
 	return 0;
 }
