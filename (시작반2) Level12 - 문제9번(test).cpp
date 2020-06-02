@@ -7,7 +7,7 @@ int main() {
 	int t = 1;
 	int x, y;
 
-	if (chr >= '0' && chr <= '9') {
+	if (chr - '0' >= 0 && chr - '0' <= '9') {
 		for (x = 2; x >= 0; x--) {
 			for (y = 2; y >= x; y--) {
 				vect[x][y] = t;
