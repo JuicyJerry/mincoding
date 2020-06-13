@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+void getName(char* x, char* y) {
+	cin >> *x >> *y;
+}
+
+int main() {
+	char x, y;
+	getName(&x, &y);
+	if (x > y) cout << y;
+	else cout << x;
+
+
+	return 0;
+}
