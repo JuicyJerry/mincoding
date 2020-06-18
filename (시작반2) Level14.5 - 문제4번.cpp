@@ -1,32 +1,45 @@
 #include <iostream>
 using namespace std;
+struct Product
+{
+	int strawberry, melon, watermelon;
+	int A[3] = { strawberry = 300, melon = 500, watermelon = 1000 };
+	int B[3] = { strawberry = 450, melon = 450, watermelon = 900 };
+	int C[3] = { strawberry = 200, melon = 150, watermelon = 700 };
+};
+
+
 int main() {
-	struct Fruits
-	{
-		int strawberry, melon, watermelon, avg;
-	};
+	Product A;
+	Product B;
+	Product C;
 
-	Fruits Amart;
-	Amart.strawberry = 300;
-	Amart.melon = 500;
-	Amart.watermelon = 1000;
-	Amart.avg = (Amart.strawberry + Amart.melon + Amart.watermelon) / 3;
+	char mart;
+	cin >> mart;
+	if (mart == 'A') {
+		int sum1 = 0;
+		for (int i = 0; i < 3; i++) {
+			sum1 += A.A[i];
+		}
+		cout << sum1 / 3;
+	}
 
-	Fruits Bmart;
-	Bmart.strawberry = 450;
-	Bmart.melon = 450;
-	Bmart.watermelon = 900;
-	Bmart.avg = (Bmart.strawberry + Bmart.melon + Bmart.watermelon) / 3;
+	if (mart == 'B') {
+		int sum2 = 0;
+		for (int i = 0; i < 3; i++) {
+			sum2 += B.A[i];
+		}
+		cout << sum2 / 3;
+	}
 
-	Fruits Cmart;
-	Cmart.strawberry = 200;
-	Cmart.melon = 150;
-	Cmart.watermelon = 700;
-	Cmart.avg = (Cmart.strawberry + Cmart.melon + Cmart.watermelon) / 3;
+	if (mart == 'C') {
+		int sum3 = 0;
+		for (int i = 0; i < 3; i++) {
+			sum3 += C.A[i];
+		}
+		cout << sum3 / 3;
+	}
 
-	char whichMart;
-	cin >> whichMart;
-	cout << whichMart.avg;
 
 
 	return 0;
