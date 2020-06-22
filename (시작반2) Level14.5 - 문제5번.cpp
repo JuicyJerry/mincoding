@@ -21,6 +21,7 @@ int main() {
 				wording[y] = wording[x];
 				wording[x] = temp;
 			}
+
 		}
 	}
 	char temp1;
