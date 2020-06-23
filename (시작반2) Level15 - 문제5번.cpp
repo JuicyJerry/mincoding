@@ -1,38 +1,31 @@
 #include <iostream>
 using namespace std;
 int main() {
-	char vect1[7], vect2[7], vect3[7], vect4[7];
-	cin >> vect1 >> vect2 >> vect3 >> vect4;
-	int len[4];
-	for (int i = 0; i < 7; i++) {
-		if (vect1[i] == '\0') {
-			len[0] = i;
-		}
-		if (vect2[i] == '\0') {
-			len[1] = i;
-		}
-		if (vect3[i] == '\0') {
-			len[2] = i;
-		}
-		if (vect4[i] == '\0') {
-			len[3] = i;
-		}
-	}
+	char vect[4][7];
+	int length[4];
+	for (int y = 0; y < 4; y++) cin >> vect[y];
 
-	int temp;
 	for (int y = 0; y < 4; y++) {
-		for (int x = y; x < 4; x++) {
-			if (len[y] > len[x]) {
-				temp = len[y];
-				len[y] = len[x];
-				len[x] = temp;
+		for (int x = 0; x < 7; x++) {
+			if (vect[y][x] == '\0') {
+				length[y] = x;
+				break;
 			}
 		}
 	}
 
-	for (int i = 0; i < 4; i++) {
-		cout << len[i] << " ";
+	int temp;
+	for (int j = 0; j < 4; j++) {
+		for (int i = j + 1; i < 4; i++) {
+			if (length[j] > length[i]) {
+				temp = length[j];
+				length[j] = length[i];
+				length[i] = temp;
+			}
+		}
 	}
+
+	for (int i = 0; i < 4; i++) cout << length[i] << " ";
 
 	return 0;
 }
