@@ -2,12 +2,10 @@
 using namespace std;
 char name[5];
 char path[4];
+int via[10];
 
 void run(int level)
 {
-	if (level >= 2 && path[level - 2] == path[level - 1]) return;
-	if (level >= 3 && path[level - 3] == path[level - 1]) return;
-
 	if (level == 3)
 	{
 		cout << path << endl;
@@ -15,9 +13,13 @@ void run(int level)
 	}
 
 	for (int i = 0; i < 4; i++) {
-		path[level] = name[i];
-		run(level + 1);
-		path[level] = 0;
+		if (via[i] == 0) {
+			via[i] = 1;
+			path[level] = name[i];
+			run(level + 1);
+			path[level] = 0;
+			via[i] = 0;
+		}
 	}
 
 }
