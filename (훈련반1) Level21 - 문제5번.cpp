@@ -1,31 +1,38 @@
 #include <iostream>
+#include <cstring>
+#include <string.h>
+#include <stdio.h>
 using namespace std;
 int main()
 {
 	char vect[3][11];
-	cin >> vect[0][11];
-	cin >> vect[1][11];
-	cin >> vect[2][11];
+	int max = -999;
+	int maxIndex;
 
-	int v1 = strlen(vect[0]);
-	int v2 = strlen(vect[1]);
-	int v3 = strlen(vect[2]);
+	cin >> vect[0];
+	cin >> vect[1];
+	cin >> vect[2];
 
-	/*char temp1[v2];
-	char temp2[v3];
-	if (v2 > v1 && v2 > v3) {
-		strcpy(temp1[v2], vect[1][v2]);
-		strcpy(vect[1][v2], vect[0][v1]);
-		strcpy(vect[0][v1], temp1[v2]);
-	}
-	else if (v3 > v1 && v3 > v2) {
-		strcpy(temp2[v3], vect[2][v3]);
-		strcpy(vect[2][v3], vect[0][v1]);
-		strcpy(vect[0][v1], temp2[v3]);
+
+	for (int i = 0; i < 3; i++)
+	{
+		int len = strlen(vect[i]);
+		if (len > max)
+		{
+			max = len;
+			maxIndex = i;
+		}
 	}
 
-	cout << vect;*/
+	char temp[11];
+	strcpy_s(temp, vect[maxIndex]);
+	strcpy_s(vect[maxIndex], vect[0]);
+	strcpy_s(vect[0], temp);
 
+	for (int y = 0; y < 3; y++)
+	{
+		cout << vect[y] << endl;
+	}
 
 	return 0;
 }
