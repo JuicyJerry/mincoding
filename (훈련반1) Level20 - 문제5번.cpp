@@ -1,21 +1,25 @@
 #include <iostream>
 using namespace std;
+
 char vect[6];
 
-void abc(int level)
+void run(int level)
 {
-	cout << vect[level];
-	if (level == 5) {
-		cout << '\n';
+	if (level == 5)
+	{
+		cout << endl;
 		return;
 	}
-	abc(level + 1);
-	cout << vect[level];
+
+	cout << (char)(vect[level]);
+	run(level + 1);
+	cout << (char)(vect[level]);
 }
 
-int main() {
+int main()
+{
 	cin >> vect;
-	abc(0);
+	run(0);
 
 	return 0;
 }
