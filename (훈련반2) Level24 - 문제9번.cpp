@@ -1,11 +1,9 @@
 #include <iostream>
 using namespace std;
-
-char name[3] = "OX";
 char path[10];
-int winCnt;
-int loseCnt;
-char temp[3];
+char name[3] = "OX";
+int winCnt = 0;
+int loseCnt = 0;
 
 void run(int level)
 {
@@ -15,50 +13,28 @@ void run(int level)
 		loseCnt = 0;
 		for (int i = 0; i < 3; i++)
 		{
-			if (path[i] == 'O')
-			{
-				winCnt++;
-				temp[i] = '½Â';
-			}
-
-			else
-			{
-				temp[i] = 'ÆÐ';
-				loseCnt++;
-			}
+			if (path[i] == 'O') winCnt++;
+			else loseCnt++;
 		}
 
+		if (winCnt >= 3) cout << winCnt << "½Â";
+		else if (loseCnt >= 3) cout << loseCnt << "ÆÐ";
+		else cout << winCnt << "½Â" << loseCnt << "ÆÐ";
 
-		if (winCnt >= 3)
+		cout << "(";
+		for (int i = 0; i < 3; i++)
 		{
-			cout << winCnt << "½Â(";
-			for (int i = 0; i < winCnt; i++)
+
+			if (path[i] == 'O')
 			{
 				cout << "½Â";
 			}
-			cout << ")" << endl;
-		}
-		else if (loseCnt >= 3)
-		{
-			cout << loseCnt << "ÆÐ(";
-			for (int i = 0; i < loseCnt; i++)
-			{
-				cout << "ÆÐ";
-			}
-			cout << ")" << endl;
 
+			else cout << "ÆÐ";
 		}
-		else
-		{
-			cout << winCnt << "½Â" << loseCnt << "ÆÐ(";
 
-			for (int i = 0; i < 3; i++)
-			{
-				cout << temp[i];
-			}
-
-			cout << ")" << endl;
-		}
+		cout << ")" << endl;
+		//cout << path << endl;
 
 		return;
 	}
@@ -68,7 +44,9 @@ void run(int level)
 		path[level] = name[i];
 		run(level + 1);
 		path[level] = 0;
+
 	}
+
 
 
 }
