@@ -1,38 +1,45 @@
 #include <iostream>
 using namespace std;
-int main() {
-	struct sketchbook
+
+struct sketchbook
+{
+	char image[3][3] = { '\0' };
+};
+
+int p = 0;
+char temp[9];
+sketchbook t;
+
+void isExist(int j, int i)
+{
+	for (int y = 0; y < 9; y++)
 	{
-		char image[3][3];
-	};
+		if (t.image[j][i] == temp[y]) break;
+		else if (t.image[j][i] != temp[y])
+		{
+			if (t.image[j][i] == temp[y])
+				temp[p] = t.image[j][i];
+			p++;
+			break;
+		}
+	}
+}
 
-	sketchbook book;
-	char result[10];
-	char temp;
-	int t = 0;
+int main()
+{
+	for (int y = 0; y < 3; y++)
+	{
+		cin >> t.image[y];
+	}
 
-	for (int y = 0; y < 3; y++) {
-		for (int x = 0; x < 3; x++) {
-			cin >> book.image[y][x];
-
-			if (book.image[y][x] == book.image[y][x + 1]) break;
-
-			else if (book.image[y][x] != book.image[y][x - 1]) {
-				result[t] = book.image[y][x];
-				t++;
-				if (result[t] > result[t + 1]) {
-					temp = result[t];
-					result[t] = result[t + 1];
-					result[t + 1] = temp;
-				}
-			}
+	for (int y = 0; y < 3; y++)
+	{
+		for (int x = 0; x < 3; x++)
+		{
+			isExist(y, x);
 		}
 	}
 
-	for (int q = 0; q < 10; q++) {
-		if (result[q] == '\0') break;
-		else if (result[q] != '\0') cout << result[q];
-	}
-
+	cout << temp;
 	return 0;
 }
