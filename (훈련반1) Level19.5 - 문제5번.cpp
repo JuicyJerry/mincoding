@@ -3,43 +3,30 @@ using namespace std;
 
 struct sketchbook
 {
-	char image[3][3] = { '\0' };
+	char image[3][3];
 };
 
-int p = 0;
-char temp[9];
-sketchbook t;
-
-void isExist(int j, int i)
-{
-	for (int y = 0; y < 9; y++)
-	{
-		if (t.image[j][i] == temp[y]) break;
-		else if (t.image[j][i] != temp[y])
-		{
-			if (t.image[j][i] == temp[y])
-				temp[p] = t.image[j][i];
-			p++;
-			break;
-		}
-	}
-}
 
 int main()
 {
-	for (int y = 0; y < 3; y++)
+	int vect[100] = { 0 };
+	sketchbook t;
+	for (int i = 0; i < 3; i++)
 	{
-		cin >> t.image[y];
-	}
-
-	for (int y = 0; y < 3; y++)
-	{
-		for (int x = 0; x < 3; x++)
+		for (int j = 0; j < 3; j++)
 		{
-			isExist(y, x);
+			cin >> t.image[i][j];
+			vect[t.image[i][j]] = 1;
+		}
+	}
+	for (int i = 'A'; i <= 'Z'; i++)
+	{
+		if (vect[i] == 1)
+		{
+			cout << (char)i;
 		}
 	}
 
-	cout << temp;
+
 	return 0;
 }
